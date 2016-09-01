@@ -1,21 +1,38 @@
 {
-  "name": "book-app",
-  "description": "Made for learning Node and Express 4.0",
-  "main": "app.js",
-  "authors": [
-    "Dani Akash"
-  ],
-  "license": "ISC",
-  "homepage": "https://github.com/DaniAkash/Node-LibraryApp",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "bootstrap": "^3.3.7",
-    "font-awesome": "^4.6.3"
-  }
+    "name": "library-app",
+    "description": "Made for learning Node and Express 4.0",
+    "main": "app.js",
+    "authors": [
+        "Dani Akash"
+    ],
+    "license": "ISC",
+    "homepage": "https://github.com/DaniAkash/Node-LibraryApp",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "bootstrap": "^3.3.7",
+        "font-awesome": "^4.6.3"
+    },
+    "overrides": {
+        "bootstrap": {
+            "main": [
+                "dist/js/bootstrap.js",
+                "dist/css/bootstrap.min.css",
+                "less/bootstrap.less"
+            ]
+        },
+        "font-awesome": {
+            "main": [
+                "less/font-awesome.less",
+                "css/font-awesome.min.css",
+                "scss/font-awesome.scss"
+            ]
+        }
+    }
+
 }
