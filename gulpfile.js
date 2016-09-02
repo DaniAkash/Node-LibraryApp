@@ -6,13 +6,22 @@ var config = {
     jsFiles: ['*.js', 'src/**/*.js'],
     htmlFiles: './src/views/*.html',
     destHtml: './src/views',
-    bowerJsFiles: './public/lib'
+    bowerJsFiles: './public/lib',
+    bowerOptions: {
+        bowerJson: require('./bower.json'),
+        directory: this.bowerJsFiles,
+        ignorePath: '../../public'
+    },
+    gulpInjectSrc: gulp.src(['./public/css/*.css', './public/js/*.js'], {read: false}),
+    gulpInjectOptions: {
+        ignorePath: '/public'
+    }
 };
 
 gulp.task('style', function () {
     return gulp.src(config.jsFiles)
         .pipe(jshint())
-        .pipe(jshint.reporter('jshint-stylish',{
+        .pipe(jshint.reporter('jshint-stylish', {
             verbose: true
         }))
         .pipe(jscs());
@@ -20,12 +29,10 @@ gulp.task('style', function () {
 
 gulp.task('inject', function () {
     var wiredep = require('wiredep').stream;
-    var options = {
-        bowerJson: require('./bower.json'),
-        directory: config.bowerJsFiles,
-        ignorePath: '../../public'
-    };
+    var inject = require('gulp-inject');
+
     return gulp.src(config.htmlFiles)
-        .pipe(wiredep(options))
+        .pipe(wiredep(config.bowerOptions))
+        .pipe(inject(config.gulpInjectSrc, config.gulpInjectOptions))
         .pipe(gulp.dest(config.destHtml));
 });
