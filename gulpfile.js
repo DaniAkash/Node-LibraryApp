@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
+var nodemon = require('gulp-nodemon');
 
 var config = {
     jsFiles: ['*.js', 'src/**/*.js'],
@@ -15,6 +16,14 @@ var config = {
     gulpInjectSrc: gulp.src(['./public/css/*.css', './public/js/*.js'], {read: false}),
     gulpInjectOptions: {
         ignorePath: '/public'
+    },
+    nodemonOptions: {
+        script: 'app.js',
+        delayTime: 1,
+        env: {
+            'PORT': 3000
+        },
+        watch: this.jsFiles
     }
 };
 
@@ -36,3 +45,12 @@ gulp.task('inject', function () {
         .pipe(inject(config.gulpInjectSrc, config.gulpInjectOptions))
         .pipe(gulp.dest(config.destHtml));
 });
+
+gulp.task('serve', ['style','inject'], function() {
+    return nodemon(config.nodemonOptions)
+        .on('restart', function(ev) {
+            console.log('Restarting....');
+        });
+});
+
+gulp.task('default', ['serve']);
