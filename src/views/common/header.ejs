@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title><%= title %></title>
+	<meta name="generator" content="Bootply" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="css/styles.css" rel="stylesheet">
+	<!-- bower:css -->
+	<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
+	<!-- endbower -->
+	<!-- bower:js -->
+	<script src="/lib/jquery/dist/jquery.js"></script>
+	<script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+	<!-- endbower -->
+	<!-- inject:css -->
+	<link rel="stylesheet" href="/css/styles.css">
+	<!-- endinject -->
+	<!-- inject:js -->
+	<!-- endinject -->
+</head>
+
+<body>
+	<header class="navbar navbar-bright navbar-fixed-top" role="banner">
+		<div class="container">
+			<div class="navbar-header">
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="/" class="navbar-brand">Home</a>
+			</div>
+			<nav class="collapse navbar-collapse" role="navigation">
+				<ul class="nav navbar-nav">
+					<% nav.forEach(function(item){ %>
+						<li>
+							<a href="<%= item.link %>"><%= item.text %></a>
+						</li>
+					<% }); %>
+				</ul>
+				<ul class="nav navbar-right navbar-nav">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
+						<ul class="dropdown-menu" style="padding:12px;">
+							<form class="form-inline">
+								<button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button>
+								<input type="text" class="form-control pull-left" placeholder="Search">
+							</form>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</header>
