@@ -37,18 +37,11 @@
 			</div>
 			<nav class="collapse navbar-collapse" role="navigation">
 				<ul class="nav navbar-nav">
-					<li>
-						<a href="#">Category</a>
-					</li>
-					<li>
-						<a href="#">Category</a>
-					</li>
-					<li>
-						<a href="#">Category</a>
-					</li>
-					<li>
-						<a href="#">Category</a>
-					</li>
+					<% list.forEach(function(item){ %>
+						<li>
+							<a href="#"><%= item %></a>
+						</li>
+					<% }); %>
 				</ul>
 				<ul class="nav navbar-right navbar-nav">
 					<li class="dropdown">

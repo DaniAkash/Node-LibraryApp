@@ -10,6 +10,7 @@
   "author": "Dani Akash",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^2.5.1",
     "express": "^4.14.0"
   },
   "devDependencies": {

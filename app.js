@@ -6,10 +6,16 @@ var port = process.env.PORT || 3000;
  * Serve the static files
  */
 app.use(express.static('public'));
-app.use(express.static('src/views'));
+
+/**
+ * Define Views folder and templating engine
+ */
+app.set('views', 'src/views');
+app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
-    res.send('Hello World!!');
+    var list = ['Category 1','Category 2'];
+    res.render('index',{list:list});
 });
 
 app.listen(port, function(err) {
