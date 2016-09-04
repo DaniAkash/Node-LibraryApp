@@ -1,7 +1,7 @@
-var gulp = require('gulp');
-var jshint = require('gulp-jshint');
-var jscs = require('gulp-jscs');
-var nodemon = require('gulp-nodemon');
+var gulp = require('gulp'),
+    jshint = require('gulp-jshint'),
+    jscs = require('gulp-jscs'),
+    nodemon = require('gulp-nodemon');
 
 var config = {
     jsFiles: ['*.js', 'src/**/*.js'],

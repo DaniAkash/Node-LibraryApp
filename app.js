@@ -14,8 +14,11 @@ app.set('views', 'src/views');
 app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
-    var list = ['Category 1','Category 2'];
-    res.render('index',{list:list});
+    var nav = [
+        {link: '/Authors', text: 'Authors'},
+        {link: '/Books', text: 'Books'}
+    ];
+    res.render('index', {nav: nav});
 });
 
 app.listen(port, function(err) {

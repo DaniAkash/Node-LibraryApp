@@ -37,9 +37,9 @@
 			</div>
 			<nav class="collapse navbar-collapse" role="navigation">
 				<ul class="nav navbar-nav">
-					<% list.forEach(function(item){ %>
+					<% nav.forEach(function(item){ %>
 						<li>
-							<a href="#"><%= item %></a>
+							<a href="<%= item.link %>"><%= item.text %></a>
 						</li>
 					<% }); %>
 				</ul>
