@@ -56,7 +56,7 @@
 									<div class="col-xs-9">
 										<h4><span class="label label-default"><%= book.author %></span></h4>
 										<h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted"><a href="Books/<%= index %>" class="text-muted">Read More</a></small>
+                  <% if(books.length > 1) { %><small style="font-family:courier,'new courier';" class="text-muted"><a href="Books/<%= index %>" class="text-muted">Read More</a></small><% } %>
                   </h4></div>
 									<div class="col-xs-3"></div>
 								</div>

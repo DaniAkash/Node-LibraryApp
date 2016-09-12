@@ -16,13 +16,13 @@ app.set('view engine', 'ejs');
 /**
  * Specifiying Routers
  */
-var bookRouter = express.Router();
+var bookRouter = require('./src/routes/bookRoutes');
 var authorRouter = express.Router();
 
 /**
- * Navigation bar in the website
+ * Navigation bar in the website - GLOBAL variable used for testing purpose only.. Not recommended in development
  */
-var nav = [
+GLOBAL.nav = [
     {link: '/Authors', text: 'Authors'},
     {link: '/Books', text: 'Books'}
 ];
@@ -30,7 +30,7 @@ var nav = [
 /**
  * Dummy Data - will be deleted when Database integration is done...
  */
-var books = [
+GLOBAL.booksList = [
     {
         name: 'A Little Life',
         author: 'Hanya Yanagihara',
@@ -63,19 +63,9 @@ var books = [
     }
 ];
 
-bookRouter.route('/')
-    .get(function(req, res) {
-        res.render('books', {title: 'Library - Books', books: books, nav: nav});
-    });
-
-bookRouter.route('/single')
-    .get(function(req, res) {
-        res.send('A single book!');
-    });
-
 authorRouter.route('/')
     .get(function(req, res) {
-        res.render('books', {title: 'Library - Authors', nav: nav});
+        res.render('authors', {title: 'Library - Authors', nav: nav});
     });
 
 app.get('/', function(req, res) {
