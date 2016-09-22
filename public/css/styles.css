@@ -1,5 +1,5 @@
 /* override bootstrap styles */
-@import url('http://fonts.googleapis.com/css?family=Oswald:300,400:latin,latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400:latin,latin-ext');
 
 .navbar-form input, .form-inline input {
   width:auto;
@@ -21,7 +21,7 @@ footer {
   padding-top:40px;
   padding-bottom:40px;
   background-color:#cecece;
- 
+
 }
 
 
@@ -157,7 +157,7 @@ a,a:hover {
   padding:6px;
   color:#fff;
 }
-    
+
 .btn-twitter {background-color:#4099FF;color:#fff;}
 .btn-facebook {background-color:#3B5998;color:#fff;}
 .btn-google-plus {background-color:#d34836;color:#fff;}
